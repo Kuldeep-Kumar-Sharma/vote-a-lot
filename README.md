@@ -1,5 +1,5 @@
 # Deployed URL
-[https://vote-a-lot.herokuapp.com/]
+[https://kuldeep-kumar-sharma.github.io/vote-a-lot/]
 
 # Screen shots
 In screenshots folder in repo
