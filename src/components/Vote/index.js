@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./styles.css";
+
 
 export function Vote(props) {
     const [option, setOption] = useState();
@@ -10,7 +10,7 @@ export function Vote(props) {
       {props.question &&
         props.question.options &&
         props.question.options.map((op) => (
-          op.value !== null && <div className="row" onChange={(e) => setOption(e.target.id)}>
+          op.value !== null && <div key={op.id}className="row" onChange={(e) => setOption(e.target.id)}>
             <input type="radio" id={op.id} name="option" value={op.value} />
             {op.value}
           </div>

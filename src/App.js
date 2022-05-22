@@ -12,18 +12,18 @@ function App() {
 
   useEffect(() => {
     //Referesh the chart from here
-      }, [refershChart]);
+  }, [question,refershChart]);
   return (
     <>
       <div className="row">
-        <h3>Sir Vote-a-lot</h3>
+        <h3 className="title">Vote a lot</h3>
       </div>
-      <div className="row">
+      <div key="question" className="row">
         <div className="column">
           <Question setQuestion={setQuestion} />
         </div>
         <div className="column">
-          {question && (
+          {question && question.options !== null && (
             <Vote
               refershChart={refershChart}
               setRefreshChart={setRefreshChart}
@@ -32,8 +32,8 @@ function App() {
           )}
         </div>
         <div className="column">
-          {question && (
-            <Results  question={question} />
+          {question && question.options !== null && (
+            <Results question={question} />
           )}
         </div>
       </div>

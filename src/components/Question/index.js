@@ -12,7 +12,7 @@ export function Question(props) {
        <input
          className="input"
          maxLength="80"
-         placeholder="Question.."
+         placeholder="Enter the question ?"
          value={value}
          onChange={(e) => setValue(e.target.value)}
          type="text"
@@ -20,7 +20,7 @@ export function Question(props) {
        />
        {options &&
          options.map((op) => (
-           <Option options={options} option={op} optionsList={setOptions} />
+           <Option key={op.id} options={options} option={op} optionsList={setOptions} />
          ))}
        {error && <p className="error">{error}</p>}
        <button
@@ -36,6 +36,7 @@ export function Question(props) {
                question: value,
                options: options,
              });
+             setError("");
            }
          }}
        >
@@ -45,11 +46,9 @@ export function Question(props) {
        <button
          className="button"
          onClick={() => {
-           props.setQuestion({
-             id: "",
-             question: "",
-             options: [{ id: nanoid(), value: null, votes: 0 }],
-           });
+           props.setQuestion(null);
+           setOptions([{ id: nanoid(), value: null, votes: 0 }]);
+           setError("");
          }}
        >
          Reset

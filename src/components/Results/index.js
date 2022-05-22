@@ -11,14 +11,16 @@ function getRandomColor() {
 }
 
 export function Results(props) {
-    const data = [["Votes", "Options", { role: "style" }]];
-    for (let i = 0; i < props.question.options.length - 1; i++){
-        data.push([
-          props.question.options[i].value,
-          props.question.options[i].votes,
-          getRandomColor(),
-        ]);
+  const data = [["Votes", "Options", { role: "style" }]];
+  if (props.question.options !== null) {
+    for (let i = 0; i < props.question.options.length - 1; i++) {
+      data.push([
+        props.question.options[i].value,
+        props.question.options[i].votes,
+        getRandomColor(),
+      ]);
     }
+  }
     const options = {
       title: props.question.question,
       chartArea: { width: "50%" },
@@ -30,14 +32,15 @@ export function Results(props) {
         title: "Options",
       },
     };
-  return (
-      data  && data.length > 0 && <Chart
-              chartType="ColumnChart"
-              width="100%"
-              height="400px"
-              data={data}
-              options={options}
-          />
-      
-  );
+  return props.question.options
+    ? data.length > 0 && (
+        <Chart
+          chartType="ColumnChart"
+          width="100%"
+          height="400px"
+          data={data}
+          options={options}
+        />
+      )
+    : null;
 }
