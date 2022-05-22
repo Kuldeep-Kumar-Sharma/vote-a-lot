@@ -2,7 +2,7 @@
   "name": "vote-a-lot",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Kuldeep-Kumar-Sharma.github.io",
+  "homepage": "https://Kuldeep-Kumar-Sharma.github.io/vote-a-lot",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
